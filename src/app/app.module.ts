@@ -10,9 +10,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { AssignmentsComponent } from './assignments/assignments.component';
+import { RenduDirective } from './shared/rendu.directive';
 
 @NgModule({
-  declarations: [AppComponent, AssignmentsComponent],
+  declarations: [AppComponent, AssignmentsComponent, RenduDirective],
   imports: [
     BrowserModule,
     AppRoutingModule,
