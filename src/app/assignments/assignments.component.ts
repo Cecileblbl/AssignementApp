@@ -4,8 +4,15 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './assignments.component.html',
   styleUrls: ['./assignments.component.css'],
 })
+
 export class AssignmentsComponent implements OnInit {
-  ngOnInit(): void {}
+  
+  ajoutActive = false;
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.ajoutActive = true;
+    }, 2000);
+  }
   titre = 'Mon application sur les Assignments !';
   assignments = [
     {nom:"TP1 sur Webdev", 
@@ -18,4 +25,9 @@ export class AssignmentsComponent implements OnInit {
     dateDeRendu:new Date('2021-03-29'),
     rendu : false}
   ];
+  onSubmit(event:any) {
+    console.log(event);
+ //event.preventDefault();
+  }
+ 
 }

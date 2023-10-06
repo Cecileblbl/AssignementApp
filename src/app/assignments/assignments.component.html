@@ -1,11 +1,19 @@
 <p>assignments works!</p>
 <p>Titre = {{titre}}</p>
-<form ngForm #assignementForm>
+<form ngForm #assignmentForm class=”form”>
+    <mat-form-field>
+        <input matInput>
+    </mat-form-field>
+</form>
+<form ngForm (submit)="onSubmit($event)" #assignementForm>
     <button mat-stroked-button
-    color="primary">
+    color="primary"
+    [disabled]="!ajoutActive"
+    >
     Ajouter un devoir
 </button>
 </form>
+
 <div *ngFor="let assignment of assignments">
     <p appRendu *ngIf="assignment.rendu; else nonsoumis">
         Devoir intitulé {{assignment.nom}}, rendu le 
