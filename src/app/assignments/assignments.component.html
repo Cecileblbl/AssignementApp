@@ -1,5 +1,11 @@
 <p>assignments works!</p>
 <p>Titre = {{titre}}</p>
+<form ngForm #assignementForm>
+    <button mat-stroked-button
+    color="primary">
+    Ajouter un devoir
+</button>
+</form>
 <div *ngFor="let assignment of assignments">
     <p appRendu *ngIf="assignment.rendu; else nonsoumis">
         Devoir intitulé {{assignment.nom}}, rendu le 
