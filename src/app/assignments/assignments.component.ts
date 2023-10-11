@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Assignment } from './assignment.model';
 @Component({
   selector: 'app-assignments',
   templateUrl: './assignments.component.html',
@@ -8,26 +9,39 @@ import { Component, OnInit } from '@angular/core';
 export class AssignmentsComponent implements OnInit {
   
   ajoutActive = false;
+  titre = 'Mon application sur les Assignments !';
+  nomDevoir: string = "";
+  dateDeRendu: Date = new Date();
+  
   ngOnInit(): void {
     setTimeout(() => {
       this.ajoutActive = true;
     }, 2000);
   }
-  titre = 'Mon application sur les Assignments !';
-  assignments = [
-    {nom:"TP1 sur Webdev", 
-    dateDeRendu:new Date('2021-03-15'),
-    rendu : true},
-    {nom:"TP2 sur angular",
-    dateDeRendu:new Date('2021-03-22'),
-    rendu : false},
-    {nom:"TP3 Management de projet",
-    dateDeRendu:new Date('2021-03-29'),
-    rendu : false}
+  assignments:Assignment[] = [
+    {
+      nom: 'Devoir Angular de Buffa',
+      dateDeRendu: new Date('2023-09-30'),
+      rendu: false,
+    },
+    {
+      nom: 'Devoir SQL de Mopolo',
+      dateDeRendu: new Date('2023-10-30'),
+      rendu: false,
+    },
+    {
+      nom: 'Devoir gestion de Tunsi',
+      dateDeRendu: new Date('2023-08-30'),
+      rendu: true,
+    },
   ];
-  onSubmit(event:any) {
-    console.log(event);
- //event.preventDefault();
+  onSubmit() {
+    const newAssignment = new Assignment();
+    newAssignment.nom = this.nomDevoir;
+    newAssignment.dateDeRendu = this.dateDeRendu;
+    newAssignment.rendu = false;
+
+    this.assignments.push(newAssignment);
   }
  
 }
