@@ -1,0 +1,27 @@
+<mat-toolbar color="primary">
+    <button
+    (click)="opened=!opened"
+     mat-icon-button class="Menu-icon" 
+     aria-label="Icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>My App</span>
+    <span class="Toolbar-spacer"></span>
+    <button mat-icon-button class="Chat_bubble" aria-label="Icon-button with a chat bubble">
+        <mat-icon> chat_bubble</mat-icon>
+    </button>
+    <button mat-icon-button class="profile-icon" aria-label="Icon-button with person">
+        <mat-icon>person</mat-icon>
+    </button>
+  </mat-toolbar>
+  <mat-sidenav-container>
+    <mat-sidenav [(opened)]="opened" mode="side">
+        <button mat-stroked-button color="primary">
+        <a routerLink="/Assignements">Assignements</a>
+    </button>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet>
+        </router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

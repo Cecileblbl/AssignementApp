@@ -16,11 +16,12 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import {MatSidenavModule} from '@angular/material/sidenav'; 
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { NavigationComponent } from './navigation/navigation.component'; 
 
 
 @NgModule({
-  declarations: [AppComponent, AssignmentsComponent, RenduDirective],
+  declarations: [AppComponent, AssignmentsComponent, RenduDirective, NavigationComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
