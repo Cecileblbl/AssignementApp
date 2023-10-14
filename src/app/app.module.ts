@@ -18,6 +18,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { NavigationComponent } from './navigation/navigation.component';
+import { MatListModule } from '@angular/material/list';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,8 @@ import { NavigationComponent } from './navigation/navigation.component';
     MatToolbarModule,
     MatSlideToggleModule,
     MatSidenavModule,
+    MatListModule,
+    RouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

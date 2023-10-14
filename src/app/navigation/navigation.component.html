@@ -26,21 +26,30 @@
 </mat-toolbar>
 <mat-sidenav-container>
   <mat-sidenav [(opened)]="opened" mode="side">
-    <button mat-stroked-button color="primary">
-      <a routerLink="/Assignements">Liste des devoirs</a>
-    </button>
-    <button mat-stroked-button color="primary">
-      <a>Ajout d'un devoir</a></button
-    ><button mat-stroked-button color="primary">
-      <a>Modification d'un devoir</a></button
-    ><button mat-stroked-button color="primary">
-      <a>Suppression d'un devoir</a>
-    </button>
-    <button mat-stroked-button color="primary">
-      <a>Génération de données de test</a>
-    </button>
+    <mat-nav-list>
+      <mat-list-item>
+        <button mat-stroked-button color="primary">
+          <a routerLink="/Assignements">Liste des devoirs</a>
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-stroked-button color="primary">
+          <a>Ajout d'un devoir</a>
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-stroked-button color="primary">
+          <a>Modification d'un devoir</a>
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-stroked-button color="primary">
+          <a>Suppression d'un devoir</a>
+        </button>
+      </mat-list-item>
+    </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <router-outlet> </router-outlet>
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

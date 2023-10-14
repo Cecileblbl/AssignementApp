@@ -1,0 +1,72 @@
+/* Reset styles */
+html, body, div, span, app-root, app-header, app-footer, app-sidebar, app-content, app-menu, app-menu-item, app-menu-item-link, app-menu-item-icon, app-menu-item-text, app-menu-item-submenu, app-menu-item-submenu-link, app-menu-item-submenu-icon, app-menu-item-submenu-text, app-menu-item-submenu-items, app-menu-item-submenu-item, app-menu-item-submenu-item-link, app-menu-item-submenu-item-icon, app-menu-item-submenu-item-text, app-menu-item-submenu-item-submenu {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+  }
+  
+  /* Global styles */
+  body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    background-color: #f5f5f5;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+  }
+  
+  /* Layout styles */
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .app-header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+  }
+  
+  .app-footer {
+    background-color: #f5f5f5;
+    padding: 1rem;
+  }
+  
+  .app-sidebar {
+    background-color: #fff;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    width: 250px;
+  }
+  
+  .app-content {
+    flex: 1;
+    padding: 1rem;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 767px) {
+    .app-sidebar {
+      display: none;
+    }
+  }
