@@ -1,27 +1,46 @@
 <mat-toolbar color="primary">
-    <button
-    (click)="opened=!opened"
-     mat-icon-button class="Menu-icon" 
-     aria-label="Icon-button with menu icon">
-      <mat-icon>menu</mat-icon>
+  <button
+    (click)="opened = !opened"
+    mat-icon-button
+    class="Menu-icon"
+    aria-label="Icon-button with menu icon"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>My App</span>
+  <span class="Toolbar-spacer"></span>
+  <button
+    mat-icon-button
+    class="home"
+    aria-label="Icon-button with a chat house"
+  >
+    <mat-icon> home</mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    class="profile-icon"
+    aria-label="Icon-button with person"
+  >
+    <mat-icon>person</mat-icon>
+  </button>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav [(opened)]="opened" mode="side">
+    <button mat-stroked-button color="primary">
+      <a routerLink="/Assignements">Liste des devoirs</a>
     </button>
-    <span>My App</span>
-    <span class="Toolbar-spacer"></span>
-    <button mat-icon-button class="Chat_bubble" aria-label="Icon-button with a chat bubble">
-        <mat-icon> chat_bubble</mat-icon>
+    <button mat-stroked-button color="primary">
+      <a>Ajout d'un devoir</a></button
+    ><button mat-stroked-button color="primary">
+      <a>Modification d'un devoir</a></button
+    ><button mat-stroked-button color="primary">
+      <a>Suppression d'un devoir</a>
     </button>
-    <button mat-icon-button class="profile-icon" aria-label="Icon-button with person">
-        <mat-icon>person</mat-icon>
+    <button mat-stroked-button color="primary">
+      <a>Génération de données de test</a>
     </button>
-  </mat-toolbar>
-  <mat-sidenav-container>
-    <mat-sidenav [(opened)]="opened" mode="side">
-        <button mat-stroked-button color="primary">
-        <a routerLink="/Assignements">Assignements</a>
-    </button>
-    </mat-sidenav>
-    <mat-sidenav-content>
-        <router-outlet>
-        </router-outlet>
-    </mat-sidenav-content>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet> </router-outlet>
+  </mat-sidenav-content>
 </mat-sidenav-container>
