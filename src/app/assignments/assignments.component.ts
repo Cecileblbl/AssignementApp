@@ -5,20 +5,18 @@ import { Assignment } from './assignment.model';
   templateUrl: './assignments.component.html',
   styleUrls: ['./assignments.component.css'],
 })
-
 export class AssignmentsComponent implements OnInit {
-  
   ajoutActive = false;
   titre = 'Mon application sur les Assignments !';
-  nomDevoir: string = "";
+  nomDevoir: string = '';
   dateDeRendu: Date = new Date();
-  
+
   ngOnInit(): void {
     setTimeout(() => {
       this.ajoutActive = true;
     }, 2000);
   }
-  assignments:Assignment[] = [
+  assignments: Assignment[] = [
     {
       nom: 'Devoir Angular de Buffa',
       dateDeRendu: new Date('2023-09-30'),
@@ -43,5 +41,4 @@ export class AssignmentsComponent implements OnInit {
 
     this.assignments.push(newAssignment);
   }
- 
 }

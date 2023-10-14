@@ -12,16 +12,20 @@ import { MatInputModule } from '@angular/material/input';
 import { AssignmentsComponent } from './assignments/assignments.component';
 import { RenduDirective } from './shared/rendu.directive';
 import { FormsModule } from '@angular/forms';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule} from '@angular/material/core';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import { NavigationComponent } from './navigation/navigation.component'; 
-
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { NavigationComponent } from './navigation/navigation.component';
 
 @NgModule({
-  declarations: [AppComponent, AssignmentsComponent, RenduDirective, NavigationComponent],
+  declarations: [
+    AppComponent,
+    AssignmentsComponent,
+    RenduDirective,
+    NavigationComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -33,10 +37,11 @@ import { NavigationComponent } from './navigation/navigation.component';
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    MatDatepickerModule, MatNativeDateModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     MatToolbarModule,
     MatSlideToggleModule,
-    MatSidenavModule
+    MatSidenavModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

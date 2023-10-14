@@ -4,8 +4,9 @@ import { AssignmentsComponent } from './assignments/assignments.component';
 
 const routes: Routes = [
   {
-    path:"Assignements", component:AssignmentsComponent
-  }
+    path: 'Assignements',
+    component: AssignmentsComponent,
+  },
 ];
 
 @NgModule({
