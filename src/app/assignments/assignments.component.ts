@@ -48,4 +48,7 @@ export class AssignmentsComponent implements OnInit {
   assignmentClique(assignment:Assignment) {
      this.assignmentSelectionne = assignment;
    }
+  onAssignementRendu(assignment: Assignment) {
+    assignment.rendu = true;
+  }
 }

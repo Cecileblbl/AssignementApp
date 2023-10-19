@@ -1,26 +1,32 @@
+// Angular core modules
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+
+// Angular Material modules
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { AssignmentsComponent } from './assignments/assignments.component';
-import { RenduDirective } from './shared/rendu.directive';
-import { FormsModule } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
+// Custom app modules and components
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
-import { MatListModule } from '@angular/material/list';
-import { RouterModule } from '@angular/router';
+import { AssignmentsComponent } from './assignments/assignments.component';
 import { AssignmentDetailComponent } from './assignments/assignment-detail/assignment-detail.component';
+import { RenduDirective } from './shared/rendu.directive';
 
 @NgModule({
   declarations: [
@@ -31,23 +37,29 @@ import { AssignmentDetailComponent } from './assignments/assignment-detail/assig
     AssignmentDetailComponent,
   ],
   imports: [
+    // Angular core modules
     BrowserModule,
-    AppRoutingModule,
+    RouterModule,
+    FormsModule,
+
+    // Angular Material modules
     BrowserAnimationsModule,
     MatButtonModule,
-    MatIconModule,
-    MatDividerModule,
     MatCardModule,
-    MatFormFieldModule,
-    MatInputModule,
-    FormsModule,
+    MatCheckboxModule,
     MatDatepickerModule,
-    MatNativeDateModule,
-    MatToolbarModule,
-    MatSlideToggleModule,
-    MatSidenavModule,
+    MatDividerModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
     MatListModule,
-    RouterModule,
+    MatNativeDateModule,
+    MatSidenavModule,
+    MatSlideToggleModule,
+    MatToolbarModule,
+
+    // App modules
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent],
