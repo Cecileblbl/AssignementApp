@@ -20,6 +20,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { NavigationComponent } from './navigation/navigation.component';
 import { MatListModule } from '@angular/material/list';
 import { RouterModule } from '@angular/router';
+import { AssignmentDetailComponent } from './assignments/assignment-detail/assignment-detail.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { RouterModule } from '@angular/router';
     AssignmentsComponent,
     RenduDirective,
     NavigationComponent,
+    AssignmentDetailComponent,
   ],
   imports: [
     BrowserModule,

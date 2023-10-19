@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Assignment } from './assignment.model';
+import { AssignmentDetailComponent } from './assignment-detail/assignment-detail.component';
+
 @Component({
   selector: 'app-assignments',
   templateUrl: './assignments.component.html',
   styleUrls: ['./assignments.component.css'],
 })
 export class AssignmentsComponent implements OnInit {
+  
   ajoutActive = false;
   titre = 'Mon application sur les Assignments !';
   nomDevoir: string = '';
@@ -41,4 +44,8 @@ export class AssignmentsComponent implements OnInit {
 
     this.assignments.push(newAssignment);
   }
+  assignmentSelectionne!:Assignment;
+  assignmentClique(assignment:Assignment) {
+     this.assignmentSelectionne = assignment;
+   }
 }
