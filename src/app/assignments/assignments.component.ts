@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Assignment } from './assignment.model';
+import { AssignementService } from '../shared/assignement.service';
 
 @Component({
   selector: 'app-assignments',
@@ -11,6 +12,8 @@ export class AssignmentsComponent implements OnInit {
   color = 'green';
   id = 'monParagraphe';
   boutonDesactive = true;
+  assignments?: Assignment[];
+  constructor(private assignmentService: AssignementService) {}
 
   // pour afficher tantot le formulaire,
   // tantot la liste des assignments
@@ -18,31 +21,9 @@ export class AssignmentsComponent implements OnInit {
 
   assignmentSelectionne?: Assignment;
 
-  assignments: Assignment[] = [
-    {
-      nom: 'Devoir Angular de Buffa',
-      dateDeRendu: new Date('2023-09-30'),
-      rendu: false,
-    },
-    {
-      nom: 'Devoir SQL de Mopolo',
-      dateDeRendu: new Date('2023-10-30'),
-      rendu: false,
-    },
-    {
-      nom: 'Devoir gestion de Tunsi',
-      dateDeRendu: new Date('2023-08-30'),
-      rendu: true,
-    },
-  ];
-
   ngOnInit() {
     console.log(' AVANT RENDU DE LA PAGE !');
-    /*
-    setTimeout(() => {
-      this.boutonDesactive = false;
-    }, 3000)
-    */
+    this.assignements = this.assignmentService.getAssignments();
   }
   getDescription() {
     return 'Je suis un sous composant';
