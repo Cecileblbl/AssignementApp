@@ -23,8 +23,17 @@ export class AssignmentsComponent implements OnInit {
 
   ngOnInit() {
     console.log(' AVANT RENDU DE LA PAGE !');
-    this.assignements = this.assignmentService.getAssignments();
+    this.assignmentService
+      .getAssignments()
+      .subscribe((assignments) => (this.assignments = assignments));
   }
+
+  getAssignments() {
+    this.assignmentService
+      .getAssignments()
+      .subscribe((assignments) => (this.assignments = assignments));
+  }
+
   getDescription() {
     return 'Je suis un sous composant';
   }
@@ -43,13 +52,15 @@ export class AssignmentsComponent implements OnInit {
   }
 
   onNouvelAssignment(event: Assignment) {
-    this.assignments.push(event);
+    this.assignmentService
+      .addAssignment(event)
+      .subscribe((message) => console.log(message));
     this.formVisible = false;
   }
 
   onDeleteAssignment(assignment: Assignment) {
-    const index = this.assignments.indexOf(assignment);
-    if (index !== -1) {
+    const index = this.assignments?.indexOf(assignment);
+    if (index !== undefined && index !== -1 && this.assignments) {
       this.assignments.splice(index, 1);
     }
   }

@@ -29,4 +29,9 @@ export class AssignementService {
   getAssignments(): Observable<Assignment[]> {
     return of(this.assignments);
   }
+
+  addAssignment(assignment: Assignment): Observable<Assignment> {
+    this.assignments.push(assignment);
+    return of(assignment);
+  }
 }
