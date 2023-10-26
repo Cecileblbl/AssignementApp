@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Assignment } from './assignment.model';
-import { AssignmentDetailComponent } from './assignment-detail/assignment-detail.component';
 
 @Component({
   selector: 'app-assignments',
@@ -8,17 +7,17 @@ import { AssignmentDetailComponent } from './assignment-detail/assignment-detail
   styleUrls: ['./assignments.component.css'],
 })
 export class AssignmentsComponent implements OnInit {
-  
-  ajoutActive = false;
-  titre = 'Mon application sur les Assignments !';
-  nomDevoir: string = '';
-  dateDeRendu: Date = new Date();
+  titre = "Formulaire d'ajout de devoir";
+  color = 'green';
+  id = 'monParagraphe';
+  boutonDesactive = true;
 
-  ngOnInit(): void {
-    setTimeout(() => {
-      this.ajoutActive = true;
-    }, 2000);
-  }
+  // pour afficher tantot le formulaire,
+  // tantot la liste des assignments
+  formVisible = false;
+
+  assignmentSelectionne?: Assignment;
+
   assignments: Assignment[] = [
     {
       nom: 'Devoir Angular de Buffa',
@@ -36,19 +35,45 @@ export class AssignmentsComponent implements OnInit {
       rendu: true,
     },
   ];
-  onSubmit() {
-    const newAssignment = new Assignment();
-    newAssignment.nom = this.nomDevoir;
-    newAssignment.dateDeRendu = this.dateDeRendu;
-    newAssignment.rendu = false;
 
-    this.assignments.push(newAssignment);
+  ngOnInit() {
+    console.log(' AVANT RENDU DE LA PAGE !');
+    /*
+    setTimeout(() => {
+      this.boutonDesactive = false;
+    }, 3000)
+    */
   }
-  assignmentSelectionne!:Assignment;
-  assignmentClique(assignment:Assignment) {
-     this.assignmentSelectionne = assignment;
-   }
-  onAssignementRendu(assignment: Assignment) {
-    assignment.rendu = true;
+  getDescription() {
+    return 'Je suis un sous composant';
+  }
+
+  getColor(a: any) {
+    if (a.rendu) return 'green';
+    else return 'red';
+  }
+
+  assignmentClique(a: Assignment) {
+    this.assignmentSelectionne = a;
+  }
+
+  onAddAssignmentBtnClick() {
+    this.formVisible = true;
+  }
+
+  onNouvelAssignment(event: Assignment) {
+    this.assignments.push(event);
+    this.formVisible = false;
+  }
+
+  onDeleteAssignment(a: Assignment) {
+    // position de l'assignment à supprimer, dans le tableau
+    const pos = this.assignments.indexOf(a);
+
+    // on le supprime avec ma méthode standard splice
+    // sur les tableaux javascript. Elle prend en parametre
+    // la position de l'élément à supprimer et le nombre d'éléments
+    // à supprimer à partir de cette position
+    this.assignments.splice(pos, 1);
   }
 }

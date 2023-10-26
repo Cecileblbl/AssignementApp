@@ -27,6 +27,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { AssignmentsComponent } from './assignments/assignments.component';
 import { AssignmentDetailComponent } from './assignments/assignment-detail/assignment-detail.component';
 import { RenduDirective } from './shared/rendu.directive';
+import { AddAssignmentComponent } from './assignments/add-assignment/add-assignment.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { RenduDirective } from './shared/rendu.directive';
     RenduDirective,
     NavigationComponent,
     AssignmentDetailComponent,
+    AddAssignmentComponent,
   ],
   imports: [
     // Angular core modules
