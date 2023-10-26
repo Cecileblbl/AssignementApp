@@ -1,20 +1,22 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Assignment } from '../assignment.model';
-
-
 
 @Component({
   selector: 'app-assignment-detail',
   templateUrl: './assignment-detail.component.html',
-  styleUrls: ['./assignment-detail.component.css']
+  styleUrls: ['./assignment-detail.component.css'],
 })
 export class AssignmentDetailComponent {
-  @Input() 
+  ngOnInit(): void {}
+
+  @Input()
   assignmentTransmis?: Assignment;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  @Output() deleteAssignment = new EventEmitter<Assignment>();
+
+  onDeleteAssignment() {
+    this.deleteAssignment.emit(this.assignmentTransmis);
   }
-
 }

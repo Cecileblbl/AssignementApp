@@ -24,6 +24,9 @@
     <mat-divider></mat-divider>
   </mat-list>
 
-  <app-assignment-detail [assignmentTransmis]="assignmentSelectionne">
-  </app-assignment-detail>
+  <app-assignment-detail
+    *ngIf="assignmentSelectionne"
+    [assignmentTransmis]="assignmentSelectionne"
+    (deleteAssignment)="onDeleteAssignment($event)"
+  ></app-assignment-detail>
 </main>
