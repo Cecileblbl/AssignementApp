@@ -27,6 +27,7 @@
   <app-assignment-detail
     *ngIf="assignmentSelectionne"
     [assignmentTransmis]="assignmentSelectionne"
-    (deleteAssignment)="onDeleteAssignment($event)"
+    (deletedAssignment)="onDeleteAssignment($event)"
+    (updatedAssignment)="onUpdateAssignments($event)"
   ></app-assignment-detail>
 </main>

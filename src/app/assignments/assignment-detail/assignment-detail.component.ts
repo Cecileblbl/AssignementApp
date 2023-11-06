@@ -14,9 +14,13 @@ export class AssignmentDetailComponent {
 
   constructor() {}
 
-  @Output() deleteAssignment = new EventEmitter<Assignment>();
+  @Output() deletedAssignment = new EventEmitter<Assignment>();
+  @Output() updatedAssignment = new EventEmitter<Assignment>();
 
-  onDeleteAssignment() {
-    this.deleteAssignment.emit(this.assignmentTransmis);
+  del() {
+    this.deletedAssignment.emit(this.assignmentTransmis);
+  }
+  rendu() {
+    this.updatedAssignment.emit(this.assignmentTransmis);
   }
 }

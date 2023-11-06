@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Assignment } from './assignment.model';
 import { AssignementService } from '../shared/assignement.service';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-assignments',
@@ -58,10 +59,14 @@ export class AssignmentsComponent implements OnInit {
     this.formVisible = false;
   }
 
-  onDeleteAssignment(assignment: Assignment) {
-    const index = this.assignments?.indexOf(assignment);
-    if (index !== undefined && index !== -1 && this.assignments) {
-      this.assignments.splice(index, 1);
-    }
+  onDeleteAssignment(event: Assignment) {
+    this.assignmentService
+      .deleteAssignment(event)
+      .subscribe((message) => console.log(message));
+  }
+  onUpdateAssignments(event: Assignment) {
+    this.assignmentService
+      .updateAssignment(event)
+      .subscribe((message) => console.log(message));
   }
 }

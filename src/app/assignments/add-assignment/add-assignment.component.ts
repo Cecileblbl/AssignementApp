@@ -24,7 +24,6 @@ export class AddAssignmentComponent implements OnInit {
 
     a.rendu = false;
 
-    //this.assignments.push(a);
     this.nouvelAssignment.emit(a);
   }
 }
