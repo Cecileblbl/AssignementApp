@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Assignment } from '../assignment.model';
+import { AssignementService } from 'src/app/shared/assignement.service';
 
 @Component({
   selector: 'app-assignment-detail',
@@ -19,6 +20,7 @@ export class AssignmentDetailComponent {
 
   del() {
     this.deletedAssignment.emit(this.assignmentTransmis);
+    this.assignmentTransmis = null;
   }
   rendu() {
     this.updatedAssignment.emit(this.assignmentTransmis);

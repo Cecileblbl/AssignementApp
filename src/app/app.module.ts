@@ -1,7 +1,7 @@
 // Angular core modules
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 // Angular Material modules
@@ -29,6 +29,13 @@ import { AssignmentDetailComponent } from './assignments/assignment-detail/assig
 import { RenduDirective } from './shared/rendu.directive';
 import { AddAssignmentComponent } from './assignments/add-assignment/add-assignment.component';
 
+const routes: Routes = [
+  { path: '', component: AssignmentsComponent },
+  { path: 'home', component: NavigationComponent },
+  { path: 'add', component: AddAssignmentComponent },
+  { path: 'assignment/:id', component: AssignmentDetailComponent },
+];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +50,7 @@ import { AddAssignmentComponent } from './assignments/add-assignment/add-assignm
     BrowserModule,
     RouterModule,
     FormsModule,
+    RouterModule.forRoot(routes),
 
     // Angular Material modules
     BrowserAnimationsModule,
@@ -61,7 +69,7 @@ import { AddAssignmentComponent } from './assignments/add-assignment/add-assignm
     MatToolbarModule,
 
     // App modules
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

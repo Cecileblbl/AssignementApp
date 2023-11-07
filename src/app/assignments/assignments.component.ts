@@ -48,17 +48,6 @@ export class AssignmentsComponent implements OnInit {
     this.assignmentSelectionne = a;
   }
 
-  onAddAssignmentBtnClick() {
-    this.formVisible = true;
-  }
-
-  onNouvelAssignment(event: Assignment) {
-    this.assignmentService
-      .addAssignment(event)
-      .subscribe((message) => console.log(message));
-    this.formVisible = false;
-  }
-
   onDeleteAssignment(event: Assignment) {
     this.assignmentService
       .deleteAssignment(event)
