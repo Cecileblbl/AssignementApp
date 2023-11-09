@@ -10,7 +10,7 @@ import { Assignment } from '../assignment.model';
 export class AddAssignmentComponent implements OnInit {
   // Evenement qu'on enverra au père avec la soumission
   // du formulaire
-  @Output() nouvelAssignment = new EventEmitter<Assignment>();
+  // @Output() nouvelAssignment = new EventEmitter<Assignment>();
 
   // pour le formulaire
   nomDevoir = '';

@@ -47,15 +47,4 @@ export class AssignmentsComponent implements OnInit {
   assignmentClique(a: Assignment) {
     this.assignmentSelectionne = a;
   }
-
-  onDeleteAssignment(event: Assignment) {
-    this.assignmentService
-      .deleteAssignment(event)
-      .subscribe((message) => console.log(message));
-  }
-  onUpdateAssignments(event: Assignment) {
-    this.assignmentService
-      .updateAssignment(event)
-      .subscribe((message) => console.log(message));
-  }
 }

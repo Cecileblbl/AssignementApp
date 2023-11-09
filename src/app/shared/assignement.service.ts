@@ -9,16 +9,19 @@ import { LoggingService } from './logging.service';
 export class AssignementService {
   assignments: Assignment[] = [
     {
+      id: 1,
       nom: 'Devoir Angular de Buffa',
       dateDeRendu: new Date('2023-09-30'),
       rendu: false,
     },
     {
+      id: 2,
       nom: 'Devoir SQL de Mopolo',
       dateDeRendu: new Date('2023-10-30'),
       rendu: false,
     },
     {
+      id: 3,
       nom: 'Devoir gestion de Tunsi',
       dateDeRendu: new Date('2023-08-30'),
       rendu: true,
@@ -27,9 +30,20 @@ export class AssignementService {
 
   constructor(private loggingService: LoggingService) {}
 
-  getAssignments(): Observable<Assignment[]> {
-    return of(this.assignments);
+  getAssignment(id: any): Observable<Assignment> {
+    id = Number(id);
+    const a: Assignment | undefined = this.assignments.find(
+      (assignment) => assignment.id === id
+    );
+    if (!a) {
+      throw new Error(`No assignment found with id: ${id}`);
+    }
+    return of(a);
   }
+
+  getAssignments: () => Observable<Assignment[]> = () => {
+    return of(this.assignments);
+  };
 
   addAssignment(assignment: Assignment): Observable<string> {
     this.assignments.push(assignment);
