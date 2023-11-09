@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { AssignementService } from 'src/app/shared/assignement.service';
 import { Assignment } from '../assignment.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-assignment-detail',
   templateUrl: './assignment-detail.component.html',
@@ -18,7 +18,8 @@ export class AssignmentDetailComponent {
 
   constructor(
     private assignementService: AssignementService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   getAssignment() {
@@ -32,10 +33,12 @@ export class AssignmentDetailComponent {
     this.assignementService
       .deleteAssignment(event)
       .subscribe((message) => console.log(message));
+    this.router.navigate(['/home']);
   }
   onUpdateAssignments(event: Assignment) {
     this.assignementService
       .updateAssignment(event)
       .subscribe((message) => console.log(message));
+    this.router.navigate(['/home']);
   }
 }
