@@ -14,8 +14,13 @@
     </mat-checkbox>
     <nav>
       <a routerLink="/assignment/{{ assignmentTransmis.id }}/edit">
-        <button mat-raised-button color="primary" (click)="onClickEdit()">
-          Edit
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="onClickEdit()"
+          [disabled]="!isLoggedIn()"
+        >
+          EDIT
         </button>
       </a>
     </nav>
@@ -23,6 +28,7 @@
       mat-raised-button
       color="warn"
       (click)="onDeleteAssignment(assignmentTransmis)"
+      [disabled]="!isLoggedIn()"
     >
       DELETE
     </button>

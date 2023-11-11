@@ -2,6 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { AssignementService } from 'src/app/shared/assignement.service';
 import { Assignment } from '../assignment.model';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/shared/auth.service';
 @Component({
   selector: 'app-assignment-detail',
   templateUrl: './assignment-detail.component.html',
@@ -19,7 +20,8 @@ export class AssignmentDetailComponent {
   constructor(
     private assignementService: AssignementService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private AuthService: AuthService
   ) {}
 
   onClickEdit() {
@@ -40,12 +42,16 @@ export class AssignmentDetailComponent {
     this.assignementService
       .deleteAssignment(event)
       .subscribe((message) => console.log(message));
-    this.router.navigate(['/home']);
+    this.router.navigate(['/assignment']);
   }
   onUpdateAssignments(event: Assignment) {
     this.assignementService
       .updateAssignment(event)
       .subscribe((message) => console.log(message));
-    this.router.navigate(['/home']);
+    this.router.navigate(['/assignment']);
+  }
+  isLoggedIn() {
+    // renvoie si on est loggé ou pas
+    return this.AuthService.loggedIn;
   }
 }

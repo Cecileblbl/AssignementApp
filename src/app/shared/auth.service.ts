@@ -1,26 +1,31 @@
 import { Injectable } from '@angular/core';
-
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   loggedIn = false;
 
-  logIn() {
-    this.loggedIn = true;
+  constructor() {
+    this.loggedIn = localStorage.getItem('loggedIn') === 'true';
   }
-  logout() {
+
+  logIn() {
+    console.log('LogedIn');
+    this.loggedIn = true;
+    localStorage.setItem('loggedIn', 'true');
+  }
+
+  logOut() {
+    console.log('LogedOut');
+
     this.loggedIn = false;
+    localStorage.setItem('loggedIn', 'false');
   }
 
   isAdmin() {
-    const isUserAdmin = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(this.loggedIn);
-      }, 1000);
+    const isUserAdminPromise = new Promise((resolve, reject) => {
+      resolve(this.loggedIn);
     });
-
-    return isUserAdmin;
+    return isUserAdminPromise;
   }
-  constructor() {}
 }

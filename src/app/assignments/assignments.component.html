@@ -1,23 +1,2 @@
-<div class="AddBtn">
-  <a routerLink="/add">
-    <button mat-flat-button color="accent" class="btnAjout">
-      Ajouter Assignment
-    </button>
-  </a>
-</div>
-
-<h3>Liste des devoirs :</h3>
-
-<mat-list *ngFor="let a of assignments">
-  <nav>
-    <a routerLink="/assignment/{{ a.id }}"
-      >{{ a.nom }}
-      <h3 mat-subheader>{{ a.dateDeRendu | date }}</h3>
-      <mat-list-item (click)="assignmentClique(a)">
-        <p *ngIf="a.rendu" appRendu>{{ a.nom }} a été RENDU.</p>
-        <p *ngIf="!a.rendu" appNonRendu>{{ a.nom }}, N'A PAS ETE RENDU.</p>
-      </mat-list-item>
-      <mat-divider></mat-divider>
-    </a>
-  </nav>
-</mat-list>
+<app-sidenav></app-sidenav>
+<!-- <router-outlet></router-outlet> -->

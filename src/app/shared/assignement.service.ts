@@ -48,7 +48,8 @@ export class AssignementService {
   addAssignment(assignment: Assignment): Observable<string> {
     this.assignments.push(assignment);
     return of('assignement ajouté');
-    this.loggingService.log(assignment.nom, 'ajouté');
+    //   this.loggingService.log(assignment.nom, 'ajouté');
+    //
   }
   updateAssignment(assignment: Assignment): Observable<string> {
     if (!assignment) {

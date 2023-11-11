@@ -1,0 +1,33 @@
+mat-list {
+  background-color: #ffffff; /* Dark blue */
+  color: #00008b; /* White */
+}
+
+mat-list a {
+  background-color: #ffffff; /* White */
+  color: #00008b; /* Dark blue */
+  padding: 15px;
+  margin: 10px;
+  display: block;
+  text-decoration: none; /* Removes underline */
+  border: 1px solid #d1fffa; /* Turquoise */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+mat-list a:hover {
+  background-color: #d1fffa; /* Turquoise */
+  color: #00008b; /* Dark blue */
+}
+
+mat-list-item {
+  color: #00008b; /* White */
+}
+
+appRendu {
+  color: #d1fffa; /* Turquoise */
+}
+
+appNonRendu {
+  color: #ffffff; /* White */
+}

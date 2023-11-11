@@ -1,0 +1,21 @@
+<div class="home-container">
+  <h1>Welcome to the Home Page</h1>
+  <p>There are {{ unsubmittedAssignments }} unsubmitted assignments.</p>
+
+  <div style="display: block">
+    <canvas
+      baseChart
+      [datasets]="doughnutChartDatasets"
+      [labels]="doughnutChartLabels"
+      [options]="doughnutChartOptions"
+      [legend]="false"
+      [type]="'doughnut'"
+    >
+      >
+    </canvas>
+  </div>
+
+  <button mat-raised-button color="primary" [routerLink]="['/assignment']">
+    Go to Assignments
+  </button>
+</div>

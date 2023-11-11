@@ -29,8 +29,6 @@ export class EditAssignmentComponent implements OnInit {
   getAssignment() {
     console.log('on est dans le getAssignment');
     console.log(this.route.snapshot.params['id']);
-    // on récupère l'id dans le snapshot passé par le routeur
-    // le "+" force l'id de type string en "number"
     const id = +this.route.snapshot.params['id'];
 
     this.assignmentsService.getAssignment(id).subscribe((assignment) => {
@@ -53,7 +51,7 @@ export class EditAssignmentComponent implements OnInit {
         console.log(message);
 
         // navigation vers la home page
-        this.router.navigate(['/home']);
+        this.router.navigate(['/assignment']);
       });
   }
 }

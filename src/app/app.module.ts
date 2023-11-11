@@ -29,14 +29,15 @@ import { AssignmentDetailComponent } from './assignments/assignment-detail/assig
 import { RenduDirective } from './shared/rendu.directive';
 import { AddAssignmentComponent } from './assignments/add-assignment/add-assignment.component';
 import { EditAssignmentComponent } from './assignments/edit-assignment/edit-assignment.component';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { AuthService } from './shared/auth.service';
+import { authGuard } from './shared/auth.guard';
+import { SidenavComponent } from './assignments/sidenav/sidenav.component';
+import { ListAssignmentComponent } from './assignments/list-assignment/list-assignment.component';
+import { HomeComponent } from './home/home.component';
 
-const routes: Routes = [
-  { path: '', component: AssignmentsComponent },
-  { path: 'home', component: NavigationComponent },
-  { path: 'add', component: AddAssignmentComponent },
-  { path: 'assignment/:id', component: AssignmentDetailComponent },
-  { path: 'assignment/:id/edit', component: EditAssignmentComponent },
-];
+// Other modules
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -47,13 +48,17 @@ const routes: Routes = [
     AssignmentDetailComponent,
     AddAssignmentComponent,
     EditAssignmentComponent,
+    LoginFormComponent,
+    SidenavComponent,
+    ListAssignmentComponent,
+    HomeComponent,
   ],
   imports: [
     // Angular core modules
     BrowserModule,
     RouterModule,
     FormsModule,
-    RouterModule.forRoot(routes),
+    AppRoutingModule,
 
     // Angular Material modules
     BrowserAnimationsModule,
@@ -73,6 +78,8 @@ const routes: Routes = [
 
     // App modules
     AppRoutingModule,
+    // Other modules
+    NgChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
