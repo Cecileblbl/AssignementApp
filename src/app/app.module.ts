@@ -28,12 +28,14 @@ import { AssignmentsComponent } from './assignments/assignments.component';
 import { AssignmentDetailComponent } from './assignments/assignment-detail/assignment-detail.component';
 import { RenduDirective } from './shared/rendu.directive';
 import { AddAssignmentComponent } from './assignments/add-assignment/add-assignment.component';
+import { EditAssignmentComponent } from './assignments/edit-assignment/edit-assignment.component';
 
 const routes: Routes = [
   { path: '', component: AssignmentsComponent },
   { path: 'home', component: NavigationComponent },
   { path: 'add', component: AddAssignmentComponent },
   { path: 'assignment/:id', component: AssignmentDetailComponent },
+  { path: 'assignment/:id/edit', component: EditAssignmentComponent },
 ];
 
 @NgModule({
@@ -44,6 +46,7 @@ const routes: Routes = [
     NavigationComponent,
     AssignmentDetailComponent,
     AddAssignmentComponent,
+    EditAssignmentComponent,
   ],
   imports: [
     // Angular core modules

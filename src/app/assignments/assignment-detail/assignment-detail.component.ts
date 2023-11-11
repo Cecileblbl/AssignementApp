@@ -22,6 +22,13 @@ export class AssignmentDetailComponent {
     private router: Router
   ) {}
 
+  onClickEdit() {
+    this.router.navigate(['/assignment', this.assignmentTransmis?.id, 'edit'], {
+      queryParams: { nom: this.assignmentTransmis?.nom },
+      fragment: 'edition',
+    });
+  }
+
   getAssignment() {
     const id = this.route.snapshot.params['id'];
     this.assignementService

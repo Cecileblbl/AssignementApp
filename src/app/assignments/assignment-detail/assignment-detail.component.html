@@ -12,6 +12,13 @@
     >
       Rendu
     </mat-checkbox>
+    <nav>
+      <a routerLink="/assignment/{{ assignmentTransmis.id }}/edit">
+        <button mat-raised-button color="primary" (click)="onClickEdit()">
+          Edit
+        </button>
+      </a>
+    </nav>
     <button
       mat-raised-button
       color="warn"
