@@ -26,4 +26,14 @@ export class LoginFormComponent {
     }
     this.router.navigate(['/home']);
   }
+  OnLogout(event: any) {
+    console.log('logout');
+    this.authService.logOut();
+    this.router.navigate(['/home']);
+  }
+  isLoggedIn() {
+    // renvoie si on est loggé ou pas
+    console.log(this.authService.loggedIn);
+    return this.authService.loggedIn;
+  }
 }
