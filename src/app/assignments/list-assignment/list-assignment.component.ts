@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Assignment } from '../assignment.model';
 import { AssignementService } from 'src/app/shared/assignement.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/shared/auth.service';
 
 @Component({
   selector: 'app-list-assignment',
@@ -14,9 +15,13 @@ export class ListAssignmentComponent {
   id = 'monParagraphe';
   boutonDesactive = true;
   assignments?: Assignment[];
-  constructor(private assignmentService: AssignementService) {}
+  constructor(
+    private assignmentService: AssignementService,
+    private authService: AuthService
+  ) {}
 
   formVisible = false;
+  LoggedIn = false;
 
   assignmentSelectionne?: Assignment;
 
@@ -32,6 +37,7 @@ export class ListAssignmentComponent {
       .getAssignments()
       .subscribe((assignments) => (this.assignments = assignments));
   }
+
   getColor(a: any) {
     if (a.rendu) return 'green';
     else return 'red';
@@ -39,5 +45,8 @@ export class ListAssignmentComponent {
 
   assignmentClique(a: Assignment) {
     this.assignmentSelectionne = a;
+  }
+  isLoggedin() {
+    return this.authService.isLoggedIn();
   }
 }

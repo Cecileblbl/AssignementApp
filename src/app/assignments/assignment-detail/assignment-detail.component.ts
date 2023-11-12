@@ -50,8 +50,7 @@ export class AssignmentDetailComponent {
       .subscribe((message) => console.log(message));
     this.router.navigate(['/assignment']);
   }
-  isLoggedIn() {
-    // renvoie si on est loggé ou pas
-    return this.AuthService.loggedIn;
+  isAdmin() {
+    return this.AuthService.isAdmin();
   }
 }

@@ -1,31 +1,29 @@
-<div *ngIf="isLoggedIn(); else loginForm">
+<!-- <div *ngIf="isLoggedIn(); else loginForm">
   <h2>You Are logged in !</h2>
-  <button (click)="OnLogin($event)">Logout</button>
+  <button (click)="onLogin()">Logout</button>
 </div>
-<ng-template #loginForm>
-  <form ngForm (submit)="OnLogin($event)" #LoginForm class="form">
-    <div class="form-group">
-      <label for="id">ID</label>
-      <input
-        type="text"
-        class="form-control"
-        id="id"
-        name="id"
-        ngModel
-        placeholder="Enter ID"
-      />
-    </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input
-        type="password"
-        class="form-control"
-        id="password"
-        name="password"
-        ngModel
-        placeholder="Password"
-      />
-    </div>
-    <button type="submit">Submit</button>
-  </form>
-</ng-template>
+<ng-template #loginForm> -->
+<form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input
+      type="text"
+      class="form-control"
+      id="username"
+      formControlName="username"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      formControlName="password"
+    />
+  </div>
+
+  <button type="submit">Login</button>
+</form>
+<!-- </ng-template> -->

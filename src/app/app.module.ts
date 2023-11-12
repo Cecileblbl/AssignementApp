@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // Angular Material modules
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -59,6 +60,7 @@ import { NgChartsModule } from 'ng2-charts';
     RouterModule,
     FormsModule,
     AppRoutingModule,
+    ReactiveFormsModule,
 
     // Angular Material modules
     BrowserAnimationsModule,
@@ -81,6 +83,7 @@ import { NgChartsModule } from 'ng2-charts';
     // Other modules
     NgChartsModule,
   ],
+  exports: [ReactiveFormsModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
