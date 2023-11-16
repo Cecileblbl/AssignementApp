@@ -23,10 +23,10 @@ export class ListAssignmentComponent {
   formVisible = false;
   LoggedIn = false;
 
-  assignmentSelectionne?: Assignment;
+  selectedAssignment?: Assignment;
 
   ngOnInit() {
-    console.log(' AVANT RENDU DE LA PAGE !');
+    console.log(' Page loading ');
     this.assignmentService
       .getAssignments()
       .subscribe((assignments) => (this.assignments = assignments));
@@ -39,12 +39,12 @@ export class ListAssignmentComponent {
   }
 
   getColor(a: any) {
-    if (a.rendu) return 'green';
+    if (a.submitted) return 'green';
     else return 'red';
   }
 
   assignmentClique(a: Assignment) {
-    this.assignmentSelectionne = a;
+    this.selectedAssignment = a;
   }
   isLoggedin() {
     return this.authService.isLoggedIn();

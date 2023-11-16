@@ -1,17 +1,17 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/6epMQcoo)
 
-# Angular : rendu n°2
+# Angular : submitted n°2
 
 Repository où déposer le projet n°2 Angular
 
-### Nom[^1] :Barouk
+### name[^1] :Barouk
 
-### Prénom[^2] :Cecile
+### Préname[^2] :Cecile
 
 ## A faire[^3]
 
 - [x] Suivre le cours jusqu'à la page 180
-- [x] Intégrer toolbar et navbar du rendu n°1
+- [x] Intégrer toolbar et navbar du submitted n°1
 - [x] Identification par **login/password**
   - ajouter un tableau de login/password/role (avec rôle qui est soit **user** soit **admin**) dans le service d'authentification
   - modifier le code pour avoir `isLogged()` **ET** `isAdmin()` au lieu de juste `isAdmin()`

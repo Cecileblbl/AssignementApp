@@ -10,21 +10,21 @@ export class AssignementService {
   assignments: Assignment[] = [
     {
       id: 1,
-      nom: 'Devoir Angular de Buffa',
-      dateDeRendu: new Date('2023-09-30'),
-      rendu: false,
+      name: 'Devoir Angular de Buffa',
+      dueDate: new Date('2023-09-30'),
+      submitted: false,
     },
     {
       id: 2,
-      nom: 'Devoir SQL de Mopolo',
-      dateDeRendu: new Date('2023-10-30'),
-      rendu: false,
+      name: 'Devoir SQL de Mopolo',
+      dueDate: new Date('2023-10-30'),
+      submitted: false,
     },
     {
       id: 3,
-      nom: 'Devoir gestion de Tunsi',
-      dateDeRendu: new Date('2023-08-30'),
-      rendu: true,
+      name: 'Devoir gestion de Tunsi',
+      dueDate: new Date('2023-08-30'),
+      submitted: true,
     },
   ];
 
@@ -47,23 +47,23 @@ export class AssignementService {
 
   addAssignment(assignment: Assignment): Observable<string> {
     this.assignments.push(assignment);
-    return of('assignement ajouté');
-    //   this.loggingService.log(assignment.nom, 'ajouté');
+    return of('Assignment added !');
+    //   this.loggingService.log(assignment.name, 'ajouté');
     //
   }
   updateAssignment(assignment: Assignment): Observable<string> {
     if (!assignment) {
-      return of("Assignement service: pas d'assignement sélectionné");
+      return of('Assignement service: No assignment was selected');
     }
-    assignment.rendu = true;
-    return of('Assignement service: assignement modifié');
+    assignment.submitted = true;
+    return of('Assignement service: Assignment updated');
   }
   deleteAssignment(assignment: Assignment): Observable<string> {
     if (!assignment) {
-      return of("Assignement service: pas d'assignement sélectionné");
+      return of('Assignement service: No assignment was selected');
     }
     let pos = this.assignments.indexOf(assignment);
     this.assignments.splice(pos, 1);
-    return of('Assignement service: assignement supprimé');
+    return of('Assignement service: assignement deleted');
   }
 }

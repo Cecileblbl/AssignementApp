@@ -15,7 +15,7 @@ export class AssignmentDetailComponent {
   }
 
   @Input()
-  assignmentTransmis?: Assignment;
+  ASent?: Assignment;
 
   constructor(
     private assignementService: AssignementService,
@@ -25,9 +25,9 @@ export class AssignmentDetailComponent {
   ) {}
 
   onClickEdit() {
-    this.router.navigate(['/assignment', this.assignmentTransmis?.id, 'edit'], {
-      queryParams: { nom: this.assignmentTransmis?.nom },
-      fragment: 'edition',
+    this.router.navigate(['/assignment', this.ASent?.id, 'edit'], {
+      queryParams: { name: this.ASent?.name },
+      fragment: 'modifying',
     });
   }
 
@@ -35,7 +35,7 @@ export class AssignmentDetailComponent {
     const id = this.route.snapshot.params['id'];
     this.assignementService
       .getAssignment(id)
-      .subscribe((assignment) => (this.assignmentTransmis = assignment));
+      .subscribe((assignment) => (this.ASent = assignment));
   }
 
   onDeleteAssignment(event: Assignment) {

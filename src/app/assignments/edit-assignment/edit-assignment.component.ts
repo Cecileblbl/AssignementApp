@@ -10,8 +10,8 @@ import { Assignment } from '../assignment.model';
 })
 export class EditAssignmentComponent implements OnInit {
   assignment!: Assignment | undefined;
-  nomAssignment!: string;
-  dateDeRendu!: Date;
+  AName!: string;
+  dueDate!: Date;
 
   constructor(
     private assignmentsService: AssignementService,
@@ -27,30 +27,30 @@ export class EditAssignmentComponent implements OnInit {
     console.log('query Fragment :' + this.route.snapshot.fragment);
   }
   getAssignment() {
-    console.log('on est dans le getAssignment');
+    console.log('getAssignment function in edit-assignmen');
     console.log(this.route.snapshot.params['id']);
     const id = +this.route.snapshot.params['id'];
 
     this.assignmentsService.getAssignment(id).subscribe((assignment) => {
       if (!assignment) return;
       this.assignment = assignment;
-      // Pour pré-remplir le formulaire
-      this.nomAssignment = assignment.nom;
-      this.dateDeRendu = assignment.dateDeRendu;
+      // To fill the form with the values of the assignment
+      this.AName = assignment.name;
+      this.dueDate = assignment.dueDate;
     });
   }
   onSaveAssignment() {
     if (!this.assignment) return;
 
-    // on récupère les valeurs dans le formulaire
-    this.assignment.nom = this.nomAssignment;
-    this.assignment.dateDeRendu = this.dateDeRendu;
+    // To update the values of the assignment
+    this.assignment.name = this.AName;
+    this.assignment.dueDate = this.dueDate;
     this.assignmentsService
       .updateAssignment(this.assignment)
       .subscribe((message) => {
         console.log(message);
 
-        // navigation vers la home page
+        // Navigate to the list of assignments
         this.router.navigate(['/assignment']);
       });
   }

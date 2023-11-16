@@ -27,7 +27,7 @@ import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { AssignmentsComponent } from './assignments/assignments.component';
 import { AssignmentDetailComponent } from './assignments/assignment-detail/assignment-detail.component';
-import { RenduDirective } from './shared/rendu.directive';
+import { renduDirective } from './shared/rendu.directive';
 import { AddAssignmentComponent } from './assignments/add-assignment/add-assignment.component';
 import { EditAssignmentComponent } from './assignments/edit-assignment/edit-assignment.component';
 import { LoginFormComponent } from './login-form/login-form.component';
@@ -44,7 +44,7 @@ import { NgChartsModule } from 'ng2-charts';
   declarations: [
     AppComponent,
     AssignmentsComponent,
-    RenduDirective,
+    renduDirective,
     NavigationComponent,
     AssignmentDetailComponent,
     AddAssignmentComponent,

@@ -6,12 +6,12 @@
 >
   <p>
     <mat-form-field>
-      <mat-label> Nom : </mat-label>
+      <mat-label> Name : </mat-label>
       <input
         matInput
-        placeholder="Nom du devoir"
-        [(ngModel)]="nomDevoir"
-        name="nom"
+        placeholder="assignment's name"
+        [(ngModel)]="AName"
+        name="name"
       />
     </mat-form-field>
   </p>
@@ -21,7 +21,7 @@
       <input
         matInput
         [matDatepicker]="picker"
-        [(ngModel)]="dateDeRendu"
+        [(ngModel)]="dueDate"
         name="date"
       />
       <mat-hint>MM/DD/YYYY</mat-hint>

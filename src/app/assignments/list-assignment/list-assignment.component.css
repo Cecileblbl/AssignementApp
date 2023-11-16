@@ -24,10 +24,10 @@ mat-list-item {
   color: #00008b; /* White */
 }
 
-appRendu {
+appsubmitted {
   color: #d1fffa; /* Turquoise */
 }
 
-appNonRendu {
+appNonsubmitted {
   color: #ffffff; /* White */
 }

@@ -9,8 +9,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./add-assignment.component.css'],
 })
 export class AddAssignmentComponent implements OnInit {
-  nomDevoir = '';
-  dateDeRendu?: Date = undefined;
+  AName = '';
+  dueDate?: Date = undefined;
 
   constructor(
     private assignementService: AssignementService,
@@ -21,10 +21,10 @@ export class AddAssignmentComponent implements OnInit {
   onSubmit(event: any) {
     console.log('onSubmit');
     let a = new Assignment();
-    a.nom = this.nomDevoir;
-    if (this.dateDeRendu) a.dateDeRendu = this.dateDeRendu;
+    a.name = this.AName;
+    if (this.dueDate) a.dueDate = this.dueDate;
 
-    a.rendu = false;
+    a.submitted = false;
 
     this.assignementService
       .addAssignment(a)

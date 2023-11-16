@@ -3,11 +3,13 @@
   <mat-list *ngFor="let a of assignments">
     <nav>
       <a routerLink="/assignment/{{ a.id }}">
-        {{ a.nom }}
-        <h3 mat-subheader>{{ a.dateDeRendu | date }}</h3>
+        {{ a.name }}
+        <h3 mat-subheader>{{ a.dueDate | date }}</h3>
         <mat-list-item (click)="assignmentClique(a)">
-          <p *ngIf="a.rendu" appRendu>{{ a.nom }} a été RENDU.</p>
-          <p *ngIf="!a.rendu" appNonRendu>{{ a.nom }}, N'A PAS ETE RENDU.</p>
+          <p *ngIf="a.submitted" appsubmitted>{{ a.name }} was submitted.</p>
+          <p *ngIf="!a.submitted" appNonsubmitted>
+            {{ a.name }}, Has not been submitted.
+          </p>
         </mat-list-item>
         <mat-divider></mat-divider>
       </a>
@@ -18,11 +20,13 @@
   <mat-list *ngFor="let a of assignments">
     <nav>
       <a>
-        {{ a.nom }}
-        <h3 mat-subheader>{{ a.dateDeRendu | date }}</h3>
+        {{ a.name }}
+        <h3 mat-subheader>{{ a.dueDate | date }}</h3>
         <mat-list-item (click)="assignmentClique(a)">
-          <p *ngIf="a.rendu" appRendu>{{ a.nom }} a été RENDU.</p>
-          <p *ngIf="!a.rendu" appNonRendu>{{ a.nom }}, N'A PAS ETE RENDU.</p>
+          <p *ngIf="a.submitted" appsubmitted>{{ a.name }} was submitted.</p>
+          <p *ngIf="!a.submitted" appNonsubmitted>
+            {{ a.name }}, Has not been submitted.
+          </p>
         </mat-list-item>
         <mat-divider></mat-divider>
       </a>

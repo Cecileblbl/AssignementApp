@@ -1,36 +1,33 @@
-<mat-card *ngIf="assignmentTransmis">
+<mat-card *ngIf="ASent">
   <mat-card-content>
     <mat-card-title>
-      {{ assignmentTransmis.nom }}
+      {{ ASent.name }}
     </mat-card-title>
     <mat-card-subtitle>
-      {{ assignmentTransmis.dateDeRendu | date : "dd/MM/yyyy" }}
+      {{ ASent.dueDate | date : "dd/MM/yyyy" }}
     </mat-card-subtitle>
-    <mat-checkbox
-      *ngIf="!assignmentTransmis.rendu"
-      (click)="onUpdateAssignments(assignmentTransmis)"
-    >
-      Rendu
+    <mat-checkbox *ngIf="!ASent.submitted" (click)="onUpdateAssignments(ASent)">
+      Submitted
     </mat-checkbox>
     <nav>
-      <a routerLink="/assignment/{{ assignmentTransmis.id }}/edit">
+      <a routerLink="/assignment/{{ ASent.id }}/edit">
         <button
           mat-raised-button
           color="primary"
           (click)="onClickEdit()"
           [disabled]="isAdmin()"
         >
-          EDIT
+          Edit
         </button>
       </a>
     </nav>
     <button
       mat-raised-button
       color="warn"
-      (click)="onDeleteAssignment(assignmentTransmis)"
+      (click)="onDeleteAssignment(ASent)"
       [disabled]="isAdmin()"
     >
-      DELETE
+      Delete
     </button>
   </mat-card-content>
 </mat-card>
