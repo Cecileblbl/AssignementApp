@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { AssignementService } from 'src/app/shared/assignement.service';
+import { AssignmentService } from 'src/app/shared/assignment.service';
 import { ChartConfiguration } from 'chart.js';
 
 @Component({
@@ -16,14 +16,14 @@ export class HomeComponent implements OnInit {
   public doughnutChartLabels = ['Unsubmitted', 'Submitted'];
   // Chart datasets
   public doughnutChartDatasets: ChartConfiguration<'doughnut'>['data']['datasets'] =
-    [{ data: [0, 0], label: 'Assignements' }];
+    [{ data: [0, 0], label: 'Assignments' }];
 
   // Number of unsubmitted assignments
   unsubmittedAssignments: number;
 
   constructor(
     // Injecting the assignment service
-    @Inject(AssignementService) private assignmentService: AssignementService
+    @Inject(AssignmentService) private assignmentService: AssignmentService
   ) {}
 
   ngOnInit() {

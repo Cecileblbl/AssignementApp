@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { AssignementService } from 'src/app/shared/assignement.service';
+import { AssignmentService } from 'src/app/shared/assignment.service';
 import { Assignment } from '../assignment.model';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -13,7 +13,7 @@ export class AddAssignmentComponent implements OnInit {
   dueDate?: Date = undefined;
 
   constructor(
-    private assignementService: AssignementService,
+    private assignmentService: AssignmentService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
@@ -26,7 +26,7 @@ export class AddAssignmentComponent implements OnInit {
 
     a.submitted = false;
 
-    this.assignementService
+    this.assignmentService
       .addAssignment(a)
       .subscribe((message) => console.log(message));
 

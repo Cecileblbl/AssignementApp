@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AssignementService } from 'src/app/shared/assignement.service';
+import { AssignmentService } from 'src/app/shared/assignment.service';
 import { Assignment } from '../assignment.model';
 
 @Component({
@@ -14,7 +14,7 @@ export class EditAssignmentComponent implements OnInit {
   dueDate!: Date;
 
   constructor(
-    private assignmentsService: AssignementService,
+    private assignmentsService: AssignmentService,
     private route: ActivatedRoute,
     private router: Router
   ) {}

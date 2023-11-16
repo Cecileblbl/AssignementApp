@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../shared/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AssignementService } from 'src/app/shared/assignement.service';
+import { AssignmentService } from 'src/app/shared/assignment.service';
 import { Validators, FormBuilder } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -21,7 +21,7 @@ export class LoginFormComponent {
     private authService: AuthService,
     private route: ActivatedRoute,
     private router: Router,
-    private assignementService: AssignementService,
+    private assignmentService: AssignmentService,
     private fb: FormBuilder
   ) {}
   ngOnInit(): void {}

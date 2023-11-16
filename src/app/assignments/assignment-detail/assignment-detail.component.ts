@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { AssignementService } from 'src/app/shared/assignement.service';
+import { AssignmentService } from 'src/app/shared/assignment.service';
 import { Assignment } from '../assignment.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/auth.service';
@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/shared/auth.service';
 })
 export class AssignmentDetailComponent {
   ngOnInit(): void {
-    console.log('Assignement detail');
+    console.log('Assignment detail');
     this.getAssignment();
   }
 
@@ -18,7 +18,7 @@ export class AssignmentDetailComponent {
   ASent?: Assignment;
 
   constructor(
-    private assignementService: AssignementService,
+    private assignmentService: AssignmentService,
     private route: ActivatedRoute,
     private router: Router,
     private AuthService: AuthService
@@ -33,19 +33,19 @@ export class AssignmentDetailComponent {
 
   getAssignment() {
     const id = this.route.snapshot.params['id'];
-    this.assignementService
+    this.assignmentService
       .getAssignment(id)
       .subscribe((assignment) => (this.ASent = assignment));
   }
 
   onDeleteAssignment(event: Assignment) {
-    this.assignementService
+    this.assignmentService
       .deleteAssignment(event)
       .subscribe((message) => console.log(message));
     this.router.navigate(['/assignment']);
   }
   onUpdateAssignments(event: Assignment) {
-    this.assignementService
+    this.assignmentService
       .updateAssignment(event)
       .subscribe((message) => console.log(message));
     this.router.navigate(['/assignment']);

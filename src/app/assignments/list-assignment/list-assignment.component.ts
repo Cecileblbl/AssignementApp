@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Assignment } from '../assignment.model';
-import { AssignementService } from 'src/app/shared/assignement.service';
+import { AssignmentService } from 'src/app/shared/assignment.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/auth.service';
 
@@ -16,7 +16,7 @@ export class ListAssignmentComponent {
   boutonDesactive = true;
   assignments?: Assignment[];
   constructor(
-    private assignmentService: AssignementService,
+    private assignmentService: AssignmentService,
     private authService: AuthService
   ) {}
 

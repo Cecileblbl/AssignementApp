@@ -6,7 +6,7 @@ import { LoggingService } from './logging.service';
 @Injectable({
   providedIn: 'root',
 })
-export class AssignementService {
+export class AssignmentService {
   assignments: Assignment[] = [
     {
       id: 1,
@@ -53,17 +53,17 @@ export class AssignementService {
   }
   updateAssignment(assignment: Assignment): Observable<string> {
     if (!assignment) {
-      return of('Assignement service: No assignment was selected');
+      return of('Assignment service: No assignment was selected');
     }
     assignment.submitted = true;
-    return of('Assignement service: Assignment updated');
+    return of('Assignment service: Assignment updated');
   }
   deleteAssignment(assignment: Assignment): Observable<string> {
     if (!assignment) {
-      return of('Assignement service: No assignment was selected');
+      return of('Assignment service: No assignment was selected');
     }
     let pos = this.assignments.indexOf(assignment);
     this.assignments.splice(pos, 1);
-    return of('Assignement service: assignement deleted');
+    return of('Assignment service: assignment deleted');
   }
 }
