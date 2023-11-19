@@ -23,7 +23,6 @@ export class AddAssignmentComponent implements OnInit {
     let a = new Assignment();
     a.name = this.AName;
     if (this.dueDate) a.dueDate = this.dueDate;
-
     a.submitted = false;
 
     this.assignmentService
