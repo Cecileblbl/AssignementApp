@@ -39,7 +39,7 @@ export class ListAssignmentComponent {
   }
 
   getColor(a: any) {
-    if (a.submitted) return 'green';
+    if (a.rendu) return 'green';
     else return 'red';
   }
 

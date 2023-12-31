@@ -2,11 +2,11 @@ table tr td {
   border: 1px solid black;
 }
 
-.submitted {
+.rendu {
   color: green;
 }
 
-.nonsubmitted {
+.nonrendu {
   color: red;
   border: 2px dashed red;
   background-color: yellow;

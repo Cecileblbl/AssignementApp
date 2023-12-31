@@ -24,10 +24,10 @@ mat-list-item {
   color: #00008b; /* White */
 }
 
-appsubmitted {
+apprendu {
   color: #d1fffa; /* Turquoise */
 }
 
-appNonsubmitted {
+appNonrendu {
   color: #ffffff; /* White */
 }

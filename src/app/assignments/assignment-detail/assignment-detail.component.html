@@ -4,10 +4,10 @@
       {{ ASent.name }}
     </mat-card-title>
     <mat-card-subtitle>
-      {{ ASent.dueDate | date : "dd/MM/yyyy" }}
+      {{ ASent.dateDeRendu | date : "dd/MM/yyyy" }}
     </mat-card-subtitle>
-    <mat-checkbox *ngIf="!ASent.submitted" (click)="onUpdateAssignments(ASent)">
-      Submitted
+    <mat-checkbox *ngIf="!ASent.rendu" (click)="onUpdateAssignments(ASent)">
+      rendu
     </mat-checkbox>
     <nav>
       <a routerLink="/assignment/{{ ASent.id }}/edit">

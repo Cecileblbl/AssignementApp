@@ -13,13 +13,13 @@ export class HomeComponent implements OnInit {
     responsive: false,
   };
   // Chart labels
-  public doughnutChartLabels = ['Unsubmitted', 'Submitted'];
+  public doughnutChartLabels = ['Unrendu', 'rendu'];
   // Chart datasets
   public doughnutChartDatasets: ChartConfiguration<'doughnut'>['data']['datasets'] =
     [{ data: [0, 0], label: 'Assignments' }];
 
-  // Number of unsubmitted assignments
-  unsubmittedAssignments: number;
+  // Number of unrendu assignments
+  unrenduAssignments: number;
 
   constructor(
     // Injecting the assignment service
@@ -29,19 +29,17 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     // On component initialization, get the assignments
     this.assignmentService.getAssignments().subscribe((assignments) => {
-      // Calculate the number of submitted assignments
-      const submitted = assignments.filter(
-        (assignment) => assignment.submitted
-      ).length;
-      // Calculate the number of unsubmitted assignments
-      const unsubmitted = assignments.length - submitted;
+      // Calculate the number of rendu assignments
+      const rendu = assignments.filter((assignment) => assignment.rendu).length;
+      // Calculate the number of unrendu assignments
+      const unrendu = assignments.length - rendu;
       // Update the chart datasets
-      this.doughnutChartDatasets = [{ data: [unsubmitted, submitted] }];
+      this.doughnutChartDatasets = [{ data: [unrendu, rendu] }];
     });
-    // Get the assignments again to calculate the number of unsubmitted assignments
+    // Get the assignments again to calculate the number of unrenduents
     this.assignmentService.getAssignments().subscribe((assignments) => {
-      this.unsubmittedAssignments = assignments.filter(
-        (assignment) => !assignment.submitted
+      this.unrendunts = assignments.filter(
+        (assignment) => !assignment.rendu
       ).length;
     });
   }

@@ -1,7 +1,7 @@
 import { Directive, ElementRef } from '@angular/core';
 
 @Directive({
-  selector: '[appsubmitted]',
+  selector: '[apprendu]',
 })
 export class renduDirective {
   constructor(el: ElementRef) {

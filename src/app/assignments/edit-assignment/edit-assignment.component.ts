@@ -11,7 +11,7 @@ import { Assignment } from '../assignment.model';
 export class EditAssignmentComponent implements OnInit {
   assignment!: Assignment | undefined;
   AName!: string;
-  dueDate!: Date;
+  dateDeRendu!: Date;
 
   constructor(
     private assignmentsService: AssignmentService,
@@ -36,7 +36,7 @@ export class EditAssignmentComponent implements OnInit {
       this.assignment = assignment;
       // To fill the form with the values of the assignment
       this.AName = assignment.name;
-      this.dueDate = assignment.dueDate;
+      this.dateDeRendu = assignment.dateDeRendu;
     });
   }
   onSaveAssignment() {
@@ -44,7 +44,7 @@ export class EditAssignmentComponent implements OnInit {
 
     // To update the values of the assignment
     this.assignment.name = this.AName;
-    this.assignment.dueDate = this.dueDate;
+    this.assignment.dateDeRendu = this.dateDeRendu;
     this.assignmentsService
       .updateAssignment(this.assignment)
       .subscribe((message) => {

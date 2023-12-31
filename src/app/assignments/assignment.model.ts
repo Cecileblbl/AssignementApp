@@ -1,8 +1,8 @@
 export class Assignment {
   id!: number;
   name!: string;
-  dueDate!: Date;
-  submitted!: boolean;
+  dateDeRendu!: Date;
+  rendu!: boolean;
 }
 
 // 655616c1f51ae27bb0fd38b0
