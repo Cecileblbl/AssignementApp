@@ -1,0 +1,17 @@
+[
+  {
+    "nom": "SGBD",
+    "professeur": "M. Galli",
+    "image": "galli.jpg"
+  },
+  {
+    "nom": "Mathematiques",
+    "professeur": "Mm. Donati",
+    "image": "donati.jpg"
+  },
+  {
+    "nom": "OIB",
+    "professeur": "M. Mirbel",
+    "image": "mirbel.jpg"
+  }
+]

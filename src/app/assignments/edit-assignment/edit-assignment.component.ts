@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AssignementService } from 'src/app/shared/assignement.service';
+import { AssignmentService } from 'src/app/shared/assignement.service';
 import { Assignment } from '../assignment.model';
 
 @Component({
@@ -14,7 +14,7 @@ export class EditAssignmentComponent implements OnInit {
   dateDeRendu!: Date;
 
   constructor(
-    private assignmentsService: AssignementService,
+    private assignmentsService: AssignmentService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
@@ -47,8 +47,8 @@ export class EditAssignmentComponent implements OnInit {
     this.assignment.dateDeRendu = this.dateDeRendu;
     this.assignmentsService
       .updateAssignment(this.assignment)
-      .subscribe((message) => {
-        console.log(message);
+      .subscribe((response) => {
+        console.log(response.message);
 
         // navigation vers la home page
         this.router.navigate(['/assignment']);

@@ -18,7 +18,7 @@
           mat-raised-button
           color="primary"
           (click)="onClickEdit()"
-          [disabled]="isAdmin()"
+          [disabled]="!isAdmin()"
         >
           EDIT
         </button>
@@ -28,7 +28,7 @@
       mat-raised-button
       color="warn"
       (click)="onDeleteAssignment(assignmentTransmis)"
-      [disabled]="isAdmin()"
+      [disabled]="!isAdmin()"
     >
       DELETE
     </button>

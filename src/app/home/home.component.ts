@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { AssignementService } from 'src/app/shared/assignement.service';
+import { AssignmentService } from 'src/app/shared/assignement.service';
 import { ChartConfiguration } from 'chart.js';
 
 @Component({
@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   unsubmittedAssignments: number;
 
   constructor(
-    @Inject(AssignementService) private assignmentService: AssignementService
+    @Inject(AssignmentService) private assignmentService: AssignmentService
   ) {}
 
   ngOnInit() {
