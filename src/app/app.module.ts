@@ -20,6 +20,10 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatStepperModule } from '@angular/material/stepper';
 
 // Custom app modules and components
 import { AppRoutingModule } from './app-routing.module';
@@ -78,6 +82,10 @@ import { HttpClientModule } from '@angular/common/http';
     MatSidenavModule,
     MatSlideToggleModule,
     MatToolbarModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatStepperModule,
 
     // App modules
     AppRoutingModule,

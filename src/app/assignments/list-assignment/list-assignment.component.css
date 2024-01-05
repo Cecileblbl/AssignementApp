@@ -3,7 +3,7 @@ mat-list {
   color: #00008b; /* White */
 }
 
-mat-list a {
+a {
   background-color: #ffffff; /* White */
   color: #00008b; /* Dark blue */
   padding: 15px;
@@ -30,4 +30,32 @@ appRendu {
 
 appNonRendu {
   color: #ffffff; /* White */
+}
+
+mat-card {
+  margin: 2% 2% 2% 2%;
+  background-color: #ffffff; /* White */
+  color: #00008b; /* Dark blue */
+  border: 1px solid #d1fffa; /* Turquoise */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.floating-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: white;
+  display: flex;
+}
+
+button {
+  margin: 2% 2% 2% 2%;
+  background-color: #ffffff; /* White */
+  color: #00008b; /* Dark blue */
+  border: 1px solid #d1fffa; /* Turquoise */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.scrollable-content {
+  overflow: auto;
+  height: calc(60vh - 64px);
 }

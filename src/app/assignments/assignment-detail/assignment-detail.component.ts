@@ -3,15 +3,19 @@ import { AssignmentService } from 'src/app/shared/assignement.service';
 import { Assignment } from '../assignment.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/auth.service';
+import matieres from '../../../shared/matieres.json';
 @Component({
   selector: 'app-assignment-detail',
   templateUrl: './assignment-detail.component.html',
   styleUrls: ['./assignment-detail.component.css'],
 })
 export class AssignmentDetailComponent {
+  matiereData: any = matieres;
+
   ngOnInit(): void {
     console.log('Assignement detail');
     this.getAssignment();
+    console.log(this.matiereData);
   }
 
   @Input()
@@ -29,6 +33,12 @@ export class AssignmentDetailComponent {
       queryParams: { nom: this.assignmentTransmis?.nom },
       fragment: 'edition',
     });
+  }
+
+  getMatiereData(nomMatiere: string) {
+    let row = this.matiereData.filter((row: any) => row.nom === nomMatiere);
+    console.log('matiere data: ' + JSON.stringify(row));
+    return row;
   }
 
   getAssignment() {

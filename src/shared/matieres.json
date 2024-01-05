@@ -13,5 +13,20 @@
     "nom": "OIB",
     "professeur": "M. Mirbel",
     "image": "mirbel.jpg"
+  },
+  {
+    "nom": "WebDev",
+    "professeur": "M. Buffa",
+    "image": "buffa.jpg"
+  },
+  {
+    "nom": "Communication",
+    "professeur": "M. Arnaud",
+    "image": "arnaud.jpg"
+  },
+  {
+    "nom": "Management",
+    "professeur": "M. Tounsi",
+    "image": "tounsi.jpg"
   }
 ]

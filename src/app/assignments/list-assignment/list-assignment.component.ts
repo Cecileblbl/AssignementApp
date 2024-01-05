@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Assignment } from '../assignment.model';
 import { AssignmentService } from 'src/app/shared/assignement.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/auth.service';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort, MatSortable } from '@angular/material/sort';
 
 @Component({
   selector: 'app-list-assignment',
@@ -15,6 +18,18 @@ export class ListAssignmentComponent {
   id = 'monParagraphe';
   boutonDesactive = true;
   assignments?: Assignment[];
+  dataSource: any;
+  displayedColumns: string[] = [
+    'nom',
+    'dateDeRendu',
+    'rendu',
+    'auteur',
+    'note',
+    'nomMatiere',
+  ];
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+
   constructor(
     private assignmentService: AssignmentService,
     private authService: AuthService
@@ -27,9 +42,17 @@ export class ListAssignmentComponent {
 
   ngOnInit() {
     console.log(' AVANT RENDU DE LA PAGE !');
-    this.assignmentService
-      .getAssignments()
-      .subscribe((assignments) => (this.assignments = assignments));
+    this.assignmentService.getAssignments().subscribe((assignments) => {
+      this.assignments = assignments;
+      this.dataSource = new MatTableDataSource<Assignment>(this.assignments);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    });
+  }
+
+  filterChange(data: Event) {
+    const value = (data.target as HTMLInputElement).value;
+    this.dataSource.filter = value.trim().toLowerCase();
   }
 
   getAssignments() {
@@ -45,6 +68,7 @@ export class ListAssignmentComponent {
 
   assignmentClique(a: Assignment) {
     this.assignmentSelectionne = a;
+    console.log('assignmentClique:' + a.nom);
   }
   isLoggedin() {
     return this.authService.isLoggedIn();
