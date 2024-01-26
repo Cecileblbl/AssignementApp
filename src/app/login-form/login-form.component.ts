@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AssignmentService } from 'src/app/shared/assignement.service';
 import { Validators, FormBuilder } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login-form',
@@ -22,7 +23,8 @@ export class LoginFormComponent {
     private route: ActivatedRoute,
     private router: Router,
     private AssignmentService: AssignmentService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private toastr: ToastrService
   ) {}
   ngOnInit(): void {}
   onLogin() {
@@ -30,6 +32,7 @@ export class LoginFormComponent {
       const username = this.loginForm.value.username;
       const password = this.loginForm.value.password;
       if (this.authService.logIn(username || '', password || '')) {
+        this.toastr.success('Connecté');
         this.router.navigate(['/home']);
       } else {
         this.isLogFailed = true;

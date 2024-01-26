@@ -3,6 +3,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AssignmentService } from 'src/app/shared/assignement.service';
 import { Assignment } from '../assignment.model';
 
+interface matiere {
+  value: string;
+  viewValue: string;
+}
+
 @Component({
   selector: 'app-edit-assignment',
   templateUrl: './edit-assignment.component.html',
@@ -12,6 +17,30 @@ export class EditAssignmentComponent implements OnInit {
   assignment!: Assignment | undefined;
   nomAssignment!: string;
   dateDeRendu!: Date;
+  remarques!: string;
+  auteur!: string;
+  nomMatiere!: string;
+  note!: number;
+  rendu!: boolean;
+  selectedrendu: boolean;
+  selectedValue: string;
+
+  updateRendu(value: string) {
+    this.selectedrendu = value === 'true' ? true : false;
+  }
+
+  isRenduTrue() {
+    return this.selectedrendu === true;
+  }
+
+  matieres: matiere[] = [
+    { value: 'Communication', viewValue: 'Communication' },
+    { value: 'WebDev', viewValue: 'WebDev' },
+    { value: 'Mathematiques', viewValue: 'Mathematiques' },
+    { value: 'SGBD', viewValue: 'SGDB' },
+    { value: 'OIB', viewValue: 'OIB' },
+    { value: 'Management', viewValue: 'Management' },
+  ];
 
   constructor(
     private assignmentsService: AssignmentService,
@@ -34,9 +63,15 @@ export class EditAssignmentComponent implements OnInit {
     this.assignmentsService.getAssignment(id).subscribe((assignment) => {
       if (!assignment) return;
       this.assignment = assignment;
-      // Pour pré-remplir le formulaire
       this.nomAssignment = assignment.nom;
       this.dateDeRendu = assignment.dateDeRendu;
+      this.rendu = assignment.rendu;
+      this.selectedrendu = assignment.rendu;
+      this.remarques = assignment.remarques;
+      this.auteur = assignment.auteur;
+      this.nomMatiere = assignment.nomMatiere;
+      this.note = assignment.note;
+      this.auteur = assignment.auteur;
     });
   }
   onSaveAssignment() {
@@ -45,6 +80,11 @@ export class EditAssignmentComponent implements OnInit {
     // on récupère les valeurs dans le formulaire
     this.assignment.nom = this.nomAssignment;
     this.assignment.dateDeRendu = this.dateDeRendu;
+    this.assignment.rendu = this.selectedrendu;
+    this.assignment.remarques = this.remarques;
+    this.assignment.auteur = this.auteur;
+    this.assignment.nomMatiere = this.nomMatiere;
+    this.assignment.note = this.note;
     this.assignmentsService
       .updateAssignment(this.assignment)
       .subscribe((response) => {

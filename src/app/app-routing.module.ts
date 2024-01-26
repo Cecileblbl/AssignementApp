@@ -8,6 +8,8 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { authGuard } from './shared/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { ListAssignmentComponent } from './assignments/list-assignment/list-assignment.component';
+import { ProfileComponent } from './profile/profile.component';
+import { CreateUserComponent } from './create-user/create-user.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -23,11 +25,13 @@ const routes: Routes = [
       {
         path: ':id/edit',
         component: EditAssignmentComponent,
-        canActivate: [authGuard],
+        // canActivate: [authGuard],
       },
     ],
   },
   { path: 'login', component: LoginFormComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'createuser', component: CreateUserComponent },
 ];
 
 @NgModule({

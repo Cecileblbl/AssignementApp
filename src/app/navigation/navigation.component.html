@@ -1,6 +1,23 @@
 <mat-toolbar color="primary">
+  <button
+    (click)="opened = !opened"
+    mat-icon-button
+    class="Menu-icon"
+    aria-label="Icon-button with menu icon"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
   <span>Assignments App</span>
   <span class="Toolbar-spacer"></span>
+  <button
+    mat-icon-button
+    class="notification"
+    aria-label="Icon-button with a notification icon"
+    (click)="openDialog()"
+  >
+    <mat-icon #notificationIcon (click)="openDialog()">notifications</mat-icon>
+  </button>
+
   <button
     mat-icon-button
     class="home"
@@ -9,13 +26,51 @@
   >
     <mat-icon> home</mat-icon>
   </button>
-  <a routerLink="/login" class="login">
-    <button
-      mat-icon-button
-      class="profile-icon"
-      aria-label="Icon-button with person"
-    >
-      <mat-icon>person</mat-icon>
+  <div *ngIf="isLogged == false">
+    <button mat-stroked-button color="primary">
+      <a routerLink="/login" class="login"> Connexion </a>
     </button>
-  </a>
+  </div>
+  <div *ngIf="isLogged == true">
+    <a routerLink="/profile" class="login">
+      <button
+        mat-icon-button
+        class="profile-icon"
+        aria-label="Icon-button with person"
+      >
+        <mat-icon>face</mat-icon>
+      </button>
+    </a>
+  </div>
 </mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav [(opened)]="opened" mode="side">
+    <mat-nav-list>
+      <mat-list-item>
+        <button mat-stroked-button color="primary">
+          <a routerLink="/home">Dashboard</a>
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-stroked-button color="primary">
+          <a routerLink="/assignment/list">Liste des devoirs</a>
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-stroked-button color="primary">
+          <a routerLink="/assignment/add">Ajout d'un devoir</a>
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <div *ngIf="isAdmin == true">
+          <button mat-stroked-button color="primary">
+            <a routerLink="/createuser">Ajout d'un user</a>
+          </button>
+        </div>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

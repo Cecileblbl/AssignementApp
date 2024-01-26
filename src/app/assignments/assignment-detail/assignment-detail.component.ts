@@ -12,10 +12,19 @@ import matieres from '../../../shared/matieres.json';
 export class AssignmentDetailComponent {
   matiereData: any = matieres;
 
+  get isAdmin(): boolean {
+    return this.authService.admin;
+  }
+  get isLoggedIn(): boolean {
+    return this.authService.loggedIn;
+  }
+
   ngOnInit(): void {
     console.log('Assignement detail');
     this.getAssignment();
     console.log(this.matiereData);
+    console.log('IS AMDIN : ' + this.isAdmin);
+    console.log('IS LOGGED IN : ' + this.authService.loggedIn);
   }
 
   @Input()
@@ -25,14 +34,24 @@ export class AssignmentDetailComponent {
     private AssignmentService: AssignmentService,
     private route: ActivatedRoute,
     private router: Router,
-    private AuthService: AuthService
+    public authService: AuthService
   ) {}
 
   onClickEdit() {
-    this.router.navigate(['/assignment', this.assignmentTransmis?.id, 'edit'], {
-      queryParams: { nom: this.assignmentTransmis?.nom },
-      fragment: 'edition',
-    });
+    if (this.authService.loggedIn == false) {
+      console.log(
+        'Vous n êtes pas authentifié ! Navigation refusée par le edit() !'
+      );
+      this.router.navigate(['/login']);
+    } else {
+      this.router.navigate(
+        ['/assignment', this.assignmentTransmis?.id, 'edit'],
+        {
+          queryParams: { nom: this.assignmentTransmis?.nom },
+          fragment: 'edition',
+        }
+      );
+    }
   }
 
   getMatiereData(nomMatiere: string) {
@@ -49,10 +68,12 @@ export class AssignmentDetailComponent {
   }
 
   onDeleteAssignment(event: Assignment) {
-    this.AssignmentService.deleteAssignment(event).subscribe((response) => {
-      console.log(response.message);
-      this.router.navigate(['/assignment']);
-    });
+    if (this.authService.admin == true) {
+      this.AssignmentService.deleteAssignment(event).subscribe((response) => {
+        console.log(response.message);
+        this.router.navigate(['/assignment']);
+      });
+    }
   }
   onUpdateAssignments(event: Assignment) {
     this.AssignmentService.updateAssignment(event).subscribe((response) =>
@@ -60,7 +81,8 @@ export class AssignmentDetailComponent {
     );
     this.router.navigate(['/assignment']);
   }
-  isAdmin() {
-    return this.AuthService.isAdmin();
-  }
+  // isAdmin() {
+  //   console.log('isAdmin' + this.authService.isAdmin());
+  //   return this.authService.isAdmin();
+  // }
 }

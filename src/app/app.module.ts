@@ -24,6 +24,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatStepperModule } from '@angular/material/stepper';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatDialogModule } from '@angular/material/dialog';
 
 // Custom app modules and components
 import { AppRoutingModule } from './app-routing.module';
@@ -44,6 +47,11 @@ import { HomeComponent } from './home/home.component';
 // Other modules
 import { NgChartsModule } from 'ng2-charts';
 import { HttpClientModule } from '@angular/common/http';
+import { MatSelect } from '@angular/material/select';
+import { ProfileComponent } from './profile/profile.component';
+import { ToastrModule } from 'ngx-toastr';
+import { CreateUserComponent } from './create-user/create-user.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +66,9 @@ import { HttpClientModule } from '@angular/common/http';
     SidenavComponent,
     ListAssignmentComponent,
     HomeComponent,
+    ProfileComponent,
+    CreateUserComponent,
+    NotificationsComponent,
   ],
   imports: [
     // Angular core modules
@@ -86,12 +97,17 @@ import { HttpClientModule } from '@angular/common/http';
     MatPaginatorModule,
     MatSortModule,
     MatStepperModule,
+    MatSelectModule,
+    MatSliderModule,
+    MatDialogModule,
 
     // App modules
     AppRoutingModule,
     // Other modules
     NgChartsModule,
     HttpClientModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
   ],
   exports: [ReactiveFormsModule, FormsModule],
   providers: [],

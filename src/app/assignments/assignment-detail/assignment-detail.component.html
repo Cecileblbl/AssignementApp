@@ -8,11 +8,14 @@
       <mat-card-content class="card-content">
         <div class="column">
           <div class="matiere">
-            <span class="title">Matiere: </span>
-            <span class="matiereValue">
-              <p>{{ getMatiereData(assignmentTransmis.nomMatiere)[0].nom }}</p>
-            </span>
             <mat-list>
+              <mat-list-item>
+                <span class="title">Matiere: </span>
+                <span class="matiereValue">
+                  {{ getMatiereData(assignmentTransmis.nomMatiere)[0].nom }}
+                </span>
+              </mat-list-item>
+
               <mat-list-item>
                 <span class="title">Date de rendu: </span>
                 <span class="value">{{
@@ -29,6 +32,32 @@
               </mat-list-item>
             </mat-list>
           </div>
+          <div class="buttons">
+            <mat-checkbox
+              *ngIf="!assignmentTransmis.rendu"
+              (click)="onUpdateAssignments(assignmentTransmis)"
+            >
+              Rendu
+            </mat-checkbox>
+            <a>
+              <button
+                mat-raised-button
+                color="primary"
+                (click)="onClickEdit()"
+                [disabled]="!isLoggedIn"
+              >
+                EDIT
+              </button>
+            </a>
+            <button
+              mat-raised-button
+              color="warn"
+              (click)="onDeleteAssignment(assignmentTransmis)"
+              [disabled]="!isAdmin"
+            >
+              DELETE
+            </button>
+          </div>
         </div>
         <div class="column">
           <img
@@ -38,32 +67,6 @@
             }}"
             alt="Image de la matiere"
           />
-          <div class="buttons">
-            <mat-checkbox
-              *ngIf="!assignmentTransmis.rendu"
-              (click)="onUpdateAssignments(assignmentTransmis)"
-            >
-              Rendu
-            </mat-checkbox>
-            <a routerLink="/assignment/{{ assignmentTransmis.id }}/edit">
-              <button
-                mat-raised-button
-                color="primary"
-                (click)="onClickEdit()"
-                [disabled]="isAdmin()"
-              >
-                EDIT
-              </button>
-            </a>
-            <button
-              mat-raised-button
-              color="warn"
-              (click)="onDeleteAssignment(assignmentTransmis)"
-              [disabled]="isAdmin()"
-            >
-              DELETE
-            </button>
-          </div>
         </div>
       </mat-card-content>
     </mat-card>

@@ -37,3 +37,7 @@ mat-sidenav {
   justify-content: space-between;
   flex-wrap: wrap;
 }
+
+button {
+  color: white;
+}

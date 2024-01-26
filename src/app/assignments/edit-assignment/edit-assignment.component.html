@@ -25,6 +25,58 @@
       <mat-datepicker-toggle matSuffix [for]="picker"> </mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
+    <mat-form-field>
+      <mat-label>Matiere</mat-label>
+      <mat-select name="matiere" [(ngModel)]="nomMatiere" name="matiere">
+        <mat-option *ngFor="let matiere of matieres" [value]="matiere.value">{{
+          matiere.viewValue
+        }}</mat-option>
+      </mat-select>
+      <mat-error>Invalide</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Nom de l'auteur</mat-label>
+      <input
+        matInput
+        placeholder="Edition de l'auteur"
+        name="nom"
+        [(ngModel)]="auteur"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Rendu</mat-label>
+      <mat-select
+        name="rendu"
+        [(ngModel)]="rendu"
+        (selectionChange)="updateRendu($event.value)"
+      >
+        <mat-option value="true">Oui</mat-option>
+        <mat-option value="false">Non</mat-option>
+      </mat-select>
+      <mat-error>Donnée invalide</mat-error>
+    </mat-form-field>
+    <mat-form-field *ngIf="isRenduTrue()">
+      <mat-label>Note</mat-label>
+      <input
+        matInput
+        [(ngModel)]="note"
+        name="note"
+        placeholder="Edition de la note"
+        type="number"
+        min="0"
+        max="20"
+        step="1"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Remarques</mat-label>
+      <textarea
+        matInput
+        placeholder="Edition des remarques"
+        [(ngModel)]="remarques"
+        name="remarques"
+      ></textarea>
+    </mat-form-field>
     <button mat-raised-button color="primary">Sauver</button>
   </form>
 </div>

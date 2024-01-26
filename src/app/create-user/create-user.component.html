@@ -1,7 +1,7 @@
 <mat-card>
-  <mat-card-title>Connexion</mat-card-title>
+  <mat-card-title>Creation de user</mat-card-title>
   <mat-card-content>
-    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <form [formGroup]="createUserForm" (ngSubmit)="onCreateUser()">
       <p>
         <mat-icon>account_circle</mat-icon>
         <mat-form-field>
@@ -26,8 +26,18 @@
           />
         </mat-form-field>
       </p>
-      <button type="submit">Login</button>
+      <p>
+        <mat-icon>lock</mat-icon>
+        <mat-form-field>
+          <select class="form-control" id="role" formControlName="role">
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+          </select>
+        </mat-form-field>
+      </p>
+      <p>
+        <button type="submit">Creer user</button>
+      </p>
     </form>
-    <!-- </ng-template> -->
   </mat-card-content></mat-card
 >

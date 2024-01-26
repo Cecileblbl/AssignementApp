@@ -1,20 +1,60 @@
+<h1>Dashboard</h1>
 <div class="home-container">
-  <h1>Welcome to the Home Page</h1>
-  <p>There are {{ unsubmittedAssignments }} unsubmitted assignments.</p>
+  <div>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title
+          >Il y a {{ unsubmittedAssignments }} assignments a
+          rendre</mat-card-title
+        >
+      </mat-card-header>
 
-  <div style="display: block">
-    <canvas
-      baseChart
-      [datasets]="doughnutChartDatasets"
-      [labels]="doughnutChartLabels"
-      [options]="doughnutChartOptions"
-      [legend]="false"
-      [type]="'doughnut'"
-    >
+      <canvas
+        baseChart
+        [datasets]="doughnutChartDatasets"
+        [labels]="doughnutChartLabels"
+        [options]="doughnutChartOptions"
+        [legend]="false"
+        [type]="'doughnut'"
       >
-    </canvas>
+        >
+      </canvas>
+    </mat-card>
   </div>
+  <div>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Les moyennes</mat-card-title>
+      </mat-card-header>
 
+      <canvas
+        baseChart
+        [datasets]="barChartDatasets"
+        [labels]="barChartLabels"
+        [options]="barChartOptions"
+        [legend]="true"
+        [type]="'bar'"
+      ></canvas>
+    </mat-card>
+  </div>
+</div>
+<div class="assignments-container">
+  <h2>Devoirs pour aujourd'hui</h2>
+  <div *ngFor="let assignment of assignments">
+    <div *ngIf="isDueToday(assignment)">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>{{ assignment.nom }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{ assignment.nomMatiere }}</p>
+          <p>{{ assignment.dateDeRendu | date }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
+<div class="button-container">
   <button mat-raised-button color="primary" [routerLink]="['/assignment']">
     Go to Assignments
   </button>

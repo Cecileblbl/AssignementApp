@@ -1,17 +1,10 @@
-.title {
-  font-weight: bold;
-  margin-right: 10px;
-  color: #00008b;
-  padding: 2px 2px 2px 2px;
-}
-
 .value {
   color: black;
   text-decoration: none;
+  padding: 2px;
+  color: black;
+  text-decoration: none;
   padding: 2px 2px 2px 2px;
-}
-
-.matiereValue {
 }
 
 .card-content {
@@ -19,10 +12,6 @@
   justify-content: space-between;
 }
 
-.column {
-  flex: 1;
-  margin: 0 10px;
-}
 img {
   border-radius: 50%;
   width: 50px; /* Ajustez la taille de l'image comme vous le souhaitez */
@@ -37,16 +26,6 @@ img {
   padding: 2px;
 }
 
-.value {
-  color: black;
-  text-decoration: none;
-  padding: 2px;
-}
-
-.matiereValue {
-  /* Add styles if needed */
-}
-
 .assignment-content {
   display: flex;
   justify-content: space-between;
@@ -54,15 +33,7 @@ img {
 
 .column {
   flex: 1;
-  margin: 0 10px;
-}
-
-.assignment-card {
-  /* Add card-specific styles */
-}
-
-.assignment-container {
-  /* Add container-specific styles */
+  margin: 5px;
 }
 
 img {
