@@ -13,7 +13,7 @@ export class AuthService {
     });
   }
 
-  url = 'http://localhost:8010/api/users';
+  url = 'https://assignment-appbackend.onrender.com/api/users';
   getUsers: () => Observable<User[]> = () => {
     return this.http.get<User[]>(this.url);
     // return of(this.assignments);
