@@ -54,3 +54,5 @@ Ajoutez un moyen pour avoir une vue de détail sur un assignment.
 - Hébergement sur render.com
 
 - Notifications toaster
+
+- Dashboard de graphiques
