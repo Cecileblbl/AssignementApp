@@ -34,9 +34,9 @@ AVANCÉ : Cas mieux (mais pas mal de travail sur back-end): en créant une colle
 
 Ajouter de nouvelles propriétés au modèle des Assignments
 Auteur (nom de l'élève)
-Matière (Base de données, Technologies Web, Grails, etc.)
+Matière
 Une image sera associée à chaque matière et une photo du prof
-Note sur 20, on ne peut marquer "rendu" un Assignment qui n'a pas été noté.
+Note sur 20, on ne peut marquer la note seulement si l'assignment est rendu
 Remarques sur l'assignment
 APPROCHE FACILE : on ajoute des propriétés au modèle des Assignments (dans le front-end et dans le back-end).
 
