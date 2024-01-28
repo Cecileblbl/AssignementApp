@@ -1,8 +1,6 @@
 # Angular : rendu final
 
-### Nom[^1] :Barouk
-
-### Prénom[^2] :Cecile
+### Léo Robin et Cécile Barouk
 
 ## Comment run le projet:
 
