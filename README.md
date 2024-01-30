@@ -14,8 +14,8 @@ le projet est disponible a ce lien:
 https://assignment-app-1ou4.onrender.com/home
 
 Logins pour tester:
-User | password
-Admin | password 
+- User | password
+- Admin | password 
 
 le backend:
 https://assignment-appbackend.onrender.com/api/assignments
